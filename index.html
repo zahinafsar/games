@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>game</title>
+	<style type="text/css">
+		.btn{
+			font-size: 60px;
+			background-color: #ee00ff59;
+			width: 33.33%;
+			height: 80px; 
+			bottom: 0px; 
+			z-index:100;
+			border: none;
+			color: #c559a3;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body style="margin: 0px;">
+	<img src="bg.png" id="rocket" style="width: 70px;height: 90px;position: absolute;z-index: 100;margin-left:50%;transform: translateX(-50%);bottom:120px">
+
+<div style="display: flex;display: flex;position: absolute;width: 100%;bottom: 0px;">
+	<button onclick="right()" class="btn"><</button>
+	<button id="stopbtn" onclick="stop()" class="btn">+</button>
+	<button onclick="left()" class="btn">></button>
+</div>
+
+<img src="bg.jpg" width="100%" height="100%" 
+style="position: absolute;"
+>
+<script type="text/javascript">
+var stbtn = document.getElementById("stopbtn");
+var size = (outerWidth/2)-70;
+var rock =document.getElementById('rocket');
+var tr = 0;
+	function left() {
+  var id = setInterval(framef, 15);
+  function framef() {
+    if (tr >= size) {
+    	clearInterval(id);
+    } else {
+    stbtn.addEventListener("click", function(){
+    clearInterval(id);
+    });
+      tr=tr+5;
+      rock.style.transform = "translateX(" + (tr) + "px)";
+    }
+}
+}
+function right() {
+  var id = setInterval(framel, 15);
+  function framel() {
+    if (tr <= -size-70) {
+      clearInterval(id);
+    } else {
+    stbtn.addEventListener("click", function(){
+    clearInterval(id);
+    });
+      tr=tr-5;
+      rock.style.transform = "translateX(" + (tr) + "px)";
+    }
+}
+}
+</script>
+</body>
+</html>
