@@ -16,9 +16,50 @@
 			color: #c559a3;
 			font-weight: bold;
 		}
+		p{
+             font-family: monospace;
+             font-size: 20px;
+		}
+		p:hover{
+			font-size: 23px;
+			cursor: pointer;
+			font-weight: bold;
+		}
+		#option{
+			top: 200px;
+			margin-left: 50%;
+			transform: translateX(-50%);
+			color: white;
+			position: absolute;
+			text-align: center;
+			z-index: 100000;
+		}
+		#enemi{
+			top: 20px;
+			height: 40px;
+			width: 40px;
+			position: absolute;
+			background-color: red;
+			z-index: 100;
+		}
 	</style>
 </head>
+
 <body style="margin: 0px;">
+    <div id="option" style="display: block;">
+    	<h1 style="color: red">Space Shooter</h1>
+    	<p onclick="go()">New Game</p>
+    	<p>Shop</p>
+    	<p onclick="setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 1000);">Exit</p>
+    </div>
+
+
+	<div id="gamebody" style="display: none;">
+<div id="enemi">	
+</div>
+
+
+	<img src="fire.svg" id="fire" style="width: 70px;height: 90px;margin-left:50%;transform: translateX(-50%);position: absolute;bottom:120px;z-index: 100;display:none ;">
 	<img src="bg.png" id="rocket" style="width: 70px;height: 90px;position: absolute;z-index: 100;margin-left:50%;transform: translateX(-50%);bottom:120px">
 
 <div style="display: flex;display: flex;position: absolute;width: 100%;bottom: 0px;">
@@ -26,43 +67,146 @@
 	<button id="stopbtn" onclick="stop()" class="btn">+</button>
 	<button onclick="left()" class="btn">></button>
 </div>
+</div>
 
 <img src="bg.jpg" width="100%" height="100%" 
-style="position: absolute;"
->
+style="position: absolute;">
 <script type="text/javascript">
 var stbtn = document.getElementById("stopbtn");
 var size = (outerWidth/2)-70;
 var rock =document.getElementById('rocket');
-var tr = 0;
+var fr =document.getElementById('fire');
+var enemi =document.getElementById('enemi');
+
+function enemi1(){
+var left = 0;
+var width = outerWidth-40;
+var id = setInterval(framenemi, 20);
+  function framenemi() {
+    if (left >= width) {
+      enemi2();
+    } else {
+      left=left+5;
+      enemi.style.transform = "translateX(" + (left) + "px)";
+    }
+}
+}
+
+function enemi2(){
+var right = 0;
+var width = outerWidth-40;
+var id = setInterval(framenemi, 20);
+  function framenemi() {
+    if (right <= 0) {
+      enemi1();
+    } else {
+      right=right-5;
+      enemi.style.transform = "translateX(" + (right) + "px)";
+    }
+}
+}
+
+function enemidown(){
+	var top = 20;
+  var id = setInterval(framenemi, 1000);
+  function framenemi() {
+      top=top+20;
+      enemi.style.top = "" + (top) + "px";
+}
+function framenemi() {
+    if (top >= outerHeight-120) {
+      alert('Game Over,refrash the window to start again');
+    } else {
+      top=top+20;
+      enemi.style.top = "" + (top) + "px";
+    }
+}
+}
+  
+function close(){
+  if (confirm("Close Window?")) {
+    close();
+  }
+}
+
+function go(){
+	var game = document.getElementById("option");
+	var main = document.getElementById("gamebody");
+     if (true) {
+	game.style.display="none";
+	main.style.display="block";
+	enemi1();
+	enemidown();
+}
+}
+
+function stop(){
+	fr.style.transform=rock.style.transform;
+	fr.style.display="block";
+	fire();
+
+}
+
+
+
+ function fire(){
+ 	var tray = 120;
+ 	var height=(outerHeight+120);
+	var id = setInterval(frame, 5);
+  function frame() {
+    if (tray >= height) {
+    	clearInterval(id);
+    	fr.style.bottom = "120px";
+    	fr.style.display="none";
+    	tray = 120;
+    } else {
+      tray=tray+7;
+      fr.style.bottom = "" + (tray) + "px";
+    }
+}
+}
+
+
+
 	function left() {
+		var trax = 0;
   var id = setInterval(framef, 15);
   function framef() {
-    if (tr >= size) {
+    if (trax >= size) {
     	clearInterval(id);
     } else {
     stbtn.addEventListener("click", function(){
     clearInterval(id);
     });
-      tr=tr+5;
-      rock.style.transform = "translateX(" + (tr) + "px)";
+      trax=trax+5;
+      rock.style.transform = "translateX(" + (trax) + "px)";
     }
 }
 }
+
+
+
+
+
+
 function right() {
+	var trax = 0;
   var id = setInterval(framel, 15);
   function framel() {
-    if (tr <= -size-70) {
+    if (trax <= -size-70) {
       clearInterval(id);
     } else {
     stbtn.addEventListener("click", function(){
     clearInterval(id);
     });
-      tr=tr-5;
-      rock.style.transform = "translateX(" + (tr) + "px)";
+      trax=trax-5;
+      rock.style.transform = "translateX(" + (trax) + "px)";
     }
 }
 }
+
+
+
 </script>
 </body>
 </html>
