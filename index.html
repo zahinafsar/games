@@ -77,31 +77,30 @@ var size = (outerWidth/2)-70;
 var rock =document.getElementById('rocket');
 var fr =document.getElementById('fire');
 var enemi =document.getElementById('enemi');
+var movenemi = 0;
 
 function enemi1(){
-var left = 0;
-var width = outerWidth-40;
+var width = outerWidth-45;
 var id = setInterval(framenemi, 20);
   function framenemi() {
-    if (left >= width) {
+    if (movenemi >= width) {
       enemi2();
     } else {
-      left=left+5;
-      enemi.style.transform = "translateX(" + (left) + "px)";
+      movenemi=movenemi+5;
+      enemi.style.transform = "translateX(" + (movenemi) + "px)";
     }
 }
 }
 
 function enemi2(){
-var right = 0;
 var width = outerWidth-40;
 var id = setInterval(framenemi, 20);
   function framenemi() {
-    if (right <= 0) {
+    if (movenemi <= 0) {
       enemi1();
     } else {
-      right=right-5;
-      enemi.style.transform = "translateX(" + (right) + "px)";
+      movenemi=movenemi-5;
+      enemi.style.transform = "translateX(" + (movenemi) + "px)";
     }
 }
 }
@@ -114,7 +113,7 @@ function enemidown(){
       enemi.style.top = "" + (top) + "px";
 }
 function framenemi() {
-    if (top >= outerHeight-120) {
+    if (top >= outerHeight-230) {
       alert('Game Over,refrash the window to start again');
     } else {
       top=top+20;
