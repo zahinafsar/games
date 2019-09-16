@@ -1,5 +1,3 @@
-
-
 var stbtn = document.getElementById("stopbtn");
 var size = (outerWidth/2)-70;
 var rock =document.getElementById('rocket');
@@ -41,6 +39,7 @@ function enemidown(){
     } else {
       top=top+20;
       enemi.style.top = "" + (top) + "px";
+      clearInterval(id);
     }
 }
 }
@@ -58,13 +57,13 @@ function go(){
   main.style.display="block";
   enemi1();
   enemidown();
+
 };
 
 function stop(){
   fr.style.transform=rock.style.transform;
   fr.style.display="block";
   fire();
-
 }
 
 
@@ -86,11 +85,25 @@ function stop(){
     });
       tray=tray+7;
       fr.style.bottom = "" + (tray) + "px";
+      hit();
     }
 }
 }
 
 
+function hit() {
+var enmlf = enemi.getBoundingClientRect().left;
+var enmtp = enemi.getBoundingClientRect().top;
+var frlf = fr.getBoundingClientRect().left;
+var frtp = fr.getBoundingClientRect().top;
+
+if(30>Math.abs(enmlf-frlf) && 0==Math.abs(Math.abs(enmtp)-Math.abs(frtp))){
+  fr.style.display="none";
+  enemi.style.display="none";
+  rock.style.display="none";
+  setTimeout(function(){ alert("you have killed the enemy"); }, 1000);
+}
+}
   
   function left() {
   var id = setInterval(framef, 15);
