@@ -97,7 +97,7 @@ var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 
-if(30>Math.abs(enmlf-frlf) && 0==Math.abs(Math.abs(enmtp)-Math.abs(frtp))){
+if(300>Math.abs(enmlf-frlf) && 0==Math.abs(Math.abs(enmtp)-Math.abs(frtp))){
   fr.style.display="none";
   enemi.style.display="none";
   rock.style.display="none";
