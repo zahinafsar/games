@@ -11,8 +11,6 @@ var id = setInterval(framenemi, 2000);
       function framenemi() {
       var width = ((outerWidth-45)/10)*((Math.random())*10);
       enemi.style.transform = "translateX(" + (width) + "px)";
-      var scl = scl+0.05;
-      enemi.style.transform = "scale(" + (scl) + ")";
     }
 }
 
@@ -39,7 +37,6 @@ function enemidown(){
     } else {
       top=top+20;
       enemi.style.top = "" + (top) + "px";
-      clearInterval(id);
     }
 }
 }
@@ -97,7 +94,7 @@ var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 
-if(300>Math.abs(enmlf-frlf) && 0==Math.abs(Math.abs(enmtp)-Math.abs(frtp))){
+if(50>Math.abs(enmlf-frlf) && 0==Math.abs(Math.abs(enmtp)-Math.abs(frtp))){
   fr.style.display="none";
   enemi.style.display="none";
   rock.style.display="none";
