@@ -25,7 +25,7 @@
       cursor: pointer;
       font-weight: bold;
     }
-    #option{
+    #option,#win,#lose{
       top: 200px;
       margin-left: 50%;
       transform: translateX(-50%);
@@ -34,8 +34,7 @@
       text-align: center;
       z-index: 100000;
     }
-    #enemi{
-      top: 20px;
+    #enemy{
       height: 40px;
       width: 40px;
       position: absolute;
@@ -54,8 +53,21 @@
     </div>
 
 
+    <div id="win" style="display: none;">
+      <h1 style="color: red">You Have Killed the enemi</h1>
+      <p onclick="go()">Continue</p>
+      <p onclick="setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 1000);">Exit</p>
+    </div>
+   
+<div id="lose" style="display: none;">
+      <h1 style="color: red">Game Over</h1>
+      <p onclick="go()">Continue</p>
+      <p onclick="setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 1000);">Exit</p>
+    </div>
+
+
   <div id="gamebody" style="display: none;">
-<div id="enemi">  
+<div id="enemy">  
 </div>
 
 

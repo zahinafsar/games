@@ -2,9 +2,23 @@ var stbtn = document.getElementById("stopbtn");
 var size = (outerWidth/2)-70;
 var rock =document.getElementById('rocket');
 var fr =document.getElementById('fire');
-var enemi =document.getElementById('enemi');
+var enemi =document.getElementById('enemy');
+var game = document.getElementById("option");
+var main = document.getElementById("gamebody");
+var win = document.getElementById("win");
 var movenemi = 0;
 var trax = 0;
+
+function go(){
+  enemi.style.display = "block";
+  lose.style.display="none";
+  win.style.display="none";
+  game.style.display="none";
+  main.style.display="block";
+  enemi1();
+  enemidown();
+};
+
 
 function enemi1(){
 var id = setInterval(framenemi, 2000);
@@ -27,36 +41,25 @@ var id = setInterval(framenemi, 2000);
 // }
 // }
 
+
 function enemidown(){
-  var top = 20;
-  var id = setInterval(framenemi, 2000);
+  enemi.style.top = "20px";
+  var a = enemi.style.top;
+  var tp = parseInt(a);
+  var dwn = setInterval(framenemi, 2000);
   function framenemi() {
-    if (top >= outerHeight-300) {
-      clearInterval(id);
-      alert('Game Over,refrash the window to start again');
+    if (tp >= outerHeight-300) {
+      clearInterval(dwn);
+      console.log('lose');
+      lose.style.display="block";
+      main.style.display="none";
     } else {
-      top=top+20;
-      enemi.style.top = "" + (top) + "px";
+      tp=tp+20;
+      enemi.style.top = "" + (tp) + "px";
     }
 }
 }
   
-function close(){
-  if (confirm("Close Window?")) {
-    close();
-  }
-}
-
-function go(){
-  var game = document.getElementById("option");
-  var main = document.getElementById("gamebody");
-  game.style.display="none";
-  main.style.display="block";
-  enemi1();
-  enemidown();
-
-};
-
 function stop(){
   fr.style.transform=rock.style.transform;
   fr.style.display="block";
@@ -82,25 +85,20 @@ function stop(){
     });
       tray=tray+7;
       fr.style.bottom = "" + (tray) + "px";
-      hit();
-    }
-}
-}
-
-
-function hit() {
+      
 var enmlf = enemi.getBoundingClientRect().left;
 var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
+if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<45 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
+ enemi.style.display="none";
+// win.style.display="block";
+console.log('you win');
+}
+}
+}
+}
 
-if(50>Math.abs(enmlf-frlf) && 0==Math.abs(Math.abs(enmtp)-Math.abs(frtp))){
-  fr.style.display="none";
-  enemi.style.display="none";
-  rock.style.display="none";
-  setTimeout(function(){ alert("you have killed the enemy"); }, 1000);
-}
-}
   
   function left() {
   var id = setInterval(framef, 15);
