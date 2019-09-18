@@ -41,7 +41,25 @@
       background-color: red;
       z-index: 100;
     }
+    #score{
+    	text-align: center;
+    	width: 30px;
+    	z-index: 1000;
+    	position: absolute;
+    	left: 0px;
+    	top: 0px;
+    	background-color: white;
+    	font-weight: bold;font-size: 20px;
+    }
+    var key = event.keyCode;
+
   </style>
+
+<script>
+
+</script>
+
+
 </head>
 
 <body style="margin: 0px;">
@@ -54,19 +72,22 @@
 
 
     <div id="win" style="display: none;">
-      <h1 style="color: red">You Have Killed the enemi</h1>
+      <h1 style="color: red">You Have Killed the enemi <br>Your Score is:</h1>
+      <p id="sr"></p>
       <p onclick="go()">Continue</p>
       <p onclick="setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 1000);">Exit</p>
     </div>
    
 <div id="lose" style="display: none;">
-      <h1 style="color: red">Game Over</h1>
-      <p onclick="go()">Continue</p>
+      <h1 style="color: red">Your Score:</h1>
+      <p id="sr"></p>
+      <p onclick="restart()">Restart</p>
       <p onclick="setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 1000);">Exit</p>
     </div>
 
 
   <div id="gamebody" style="display: none;">
+<div id="score">0</div>
 <div id="enemy">  
 </div>
 
@@ -75,9 +96,9 @@
   <img src="bg.png" id="rocket" style="width: 70px;height: 90px;position: absolute;z-index: 100;margin-left:50%;transform: translateX(-50%);bottom:120px">
 
 <div style="display: flex;display: flex;position: absolute;width: 100%;bottom: 0px;">
-  <button onclick="right()" class="btn"><</button>
+  <button id="rightbtn" onclick="right()" class="btn"><</button>
   <button id="stopbtn" onclick="stop()" class="btn">+</button>
-  <button onclick="left()" class="btn">></button>
+  <button id="leftbtn" onclick="left()" class="btn">></button>
 </div>
 </div>
 

@@ -1,4 +1,6 @@
 var stbtn = document.getElementById("stopbtn");
+var rgbtn = document.getElementById("rightbtn");
+var lfbtn = document.getElementById("leftbtn");
 var size = (outerWidth/2)-70;
 var rock =document.getElementById('rocket');
 var fr =document.getElementById('fire');
@@ -6,10 +8,38 @@ var enemi =document.getElementById('enemy');
 var game = document.getElementById("option");
 var main = document.getElementById("gamebody");
 var win = document.getElementById("win");
+var scr = document.getElementById("score");
+var s = document.getElementById("sr").innerText;
 var movenemi = 0;
 var trax = 0;
+var z = 0;
+document.onkeydown = checkKeycode;
+var keycode;
+
+
+function checkKeycode() {
+
+if (window.event.keyCode == 13){
+  go();
+}
+if (window.event.keyCode == 38){
+  stop();
+}
+if (window.event.keyCode == 39){
+  left();
+}
+if (window.event.keyCode == 37){
+ right();
+}
+};
+
+
+
+
+
 
 function go(){
+  if (game.style.display=="block") {
   enemi.style.display = "block";
   lose.style.display="none";
   win.style.display="none";
@@ -17,15 +47,16 @@ function go(){
   main.style.display="block";
   enemi1();
   enemidown();
+}
+  if (lose.style.display=="block") {
+  location.reload();
+}
 };
 
 
 function enemi1(){
-var id = setInterval(framenemi, 2000);
-      function framenemi() {
       var width = ((outerWidth-45)/10)*((Math.random())*10);
       enemi.style.transform = "translateX(" + (width) + "px)";
-    }
 }
 
 // function enemi2(){
@@ -43,18 +74,27 @@ var id = setInterval(framenemi, 2000);
 
 
 function enemidown(){
-  enemi.style.top = "20px";
+  enemi.style.top = "0px";
   var a = enemi.style.top;
   var tp = parseInt(a);
-  var dwn = setInterval(framenemi, 2000);
+  var dwn = setInterval(framenemi, 1000);
   function framenemi() {
-    if (tp >= outerHeight-300) {
+    if (tp >= outerHeight-200) {
       clearInterval(dwn);
-      console.log('lose');
       lose.style.display="block";
       main.style.display="none";
+      console.log('lose');
+// var enmlf = enemi.getBoundingClientRect().left;
+// var enmtp = enemi.getBoundingClientRect().top;
+// var rcklf = rock.getBoundingClientRect().left;
+// var rcktp = rock.getBoundingClientRect().top;
+// if(Math.abs(Math.abs(enmlf)-Math.abs(rcklf))<45 && Math.abs(Math.abs(enmtp)-Math.abs(rcktp))<5){
+//  lose.style.display="block";
+//  main.style.display="none";
+//  console.log('lose');
+// }
     } else {
-      tp=tp+20;
+      tp=tp+5;
       enemi.style.top = "" + (tp) + "px";
     }
 }
@@ -91,15 +131,16 @@ var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<45 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
- enemi.style.display="none";
-// win.style.display="block";
-console.log('you win');
+ enemi1();
+ z++;
+ scr.innerText = z;
+ s=z;
+ console.log('you win');
 }
 }
 }
 }
 
-  
   function left() {
   var id = setInterval(framef, 15);
   function framef() {
@@ -107,6 +148,9 @@ console.log('you win');
       clearInterval(id);
     } else {
     stbtn.addEventListener("click", function(){
+    clearInterval(id);
+    });
+    rgbtn.addEventListener("click", function(){
     clearInterval(id);
     });
       trax=trax+5;
@@ -127,6 +171,9 @@ function right() {
       clearInterval(id);
     } else {
     stbtn.addEventListener("click", function(){
+    clearInterval(id);
+    });
+    lfbtn.addEventListener("click", function(){
     clearInterval(id);
     });
       trax=trax-5;
