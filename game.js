@@ -55,7 +55,7 @@ function go(){
 
 
 function enemi1(){
-      var width = ((outerWidth-45)/10)*((Math.random())*10);
+      var width = ((outerWidth-70)/10)*((Math.random())*10);
       enemi.style.transform = "translateX(" + (width) + "px)";
 }
 
@@ -79,7 +79,7 @@ function enemidown(){
   var tp = parseInt(a);
   var dwn = setInterval(framenemi, 1000);
   function framenemi() {
-    if (tp >= outerHeight-300) {
+    if (tp >= outerHeight-500) {
       clearInterval(dwn);
       enemi.style.top="-100px";
       s.innerHTML = z;
@@ -131,7 +131,7 @@ var enmlf = enemi.getBoundingClientRect().left;
 var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
-if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<45 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
+if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
  enemi1();
  z+=1000;
  scr.innerHTML = z;

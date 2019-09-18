@@ -35,10 +35,10 @@
       z-index: 100000;
     }
     #enemy{
-      height: 40px;
-      width: 40px;
+      transform: rotate(180deg);
+      height: 70px;
+      width: 100px;
       position: absolute;
-      background-color: red;
       z-index: 100;
     }
     #score{
@@ -86,8 +86,7 @@
 
   <div id="gamebody" style="display: none;">
 <div id="score">0</div>
-<div id="enemy">  
-</div>
+<img id="enemy" src="alien.png"> 
 
 
   <img src="fire.svg" id="fire" style="width: 70px;height: 90px;margin-left:50%;transform: translateX(-50%);position: absolute;bottom:120px;z-index: 100;display:none ;">
