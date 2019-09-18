@@ -9,7 +9,7 @@ var game = document.getElementById("option");
 var main = document.getElementById("gamebody");
 var win = document.getElementById("win");
 var scr = document.getElementById("score");
-var s = document.getElementById("sr").innerText;
+var s = document.getElementById("sr");
 var movenemi = 0;
 var trax = 0;
 var z = 0;
@@ -79,10 +79,11 @@ function enemidown(){
   var tp = parseInt(a);
   var dwn = setInterval(framenemi, 1000);
   function framenemi() {
-    if (tp >= outerHeight-200) {
+    if (tp >= outerHeight-300) {
       clearInterval(dwn);
+      enemi.style.top="-100px";
+      s.innerHTML = z;
       lose.style.display="block";
-      main.style.display="none";
       console.log('lose');
 // var enmlf = enemi.getBoundingClientRect().left;
 // var enmtp = enemi.getBoundingClientRect().top;
@@ -132,10 +133,9 @@ var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<45 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
  enemi1();
- z++;
- scr.innerText = z;
- s=z;
- console.log('you win');
+ z+=1000;
+ scr.innerHTML = z;
+ console.log('you win',z);
 }
 }
 }
