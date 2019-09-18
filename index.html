@@ -36,19 +36,18 @@
     }
     #enemy{
       transform: rotate(180deg);
-      height: 70px;
-      width: 100px;
+      height: 40px;
+      width: 70px;
       position: absolute;
       z-index: 100;
     }
     #score{
-    	padding: 10px;
-    	text-align: center;
+    	height: 20px;
     	z-index: 1000;
     	position: absolute;
     	left: 0px;
     	top: 0px;
-    	background-color: white;
+    	background-color: red;
     	font-weight: bold;font-size: 20px;
     }
     var key = event.keyCode;
@@ -72,25 +71,25 @@
 
 
     <div id="win" style="display: none;">
-      <h1 style="color: red">You Have Killed the enemi <br>Your Score is:</h1>
-      <p onclick="go()">Continue</p>
+      <h1 style="color: red">You Have Killed the enemi</h1>
+      <p onclick="restart()">Continue</p>
       <p onclick="setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 1000);">Exit</p>
     </div>
    
 <div id="lose" style="display: none;">
-      <h1 style="color: red">Your Score:<div id="sr"></div></h1>
+      <h1 style="color: red">Your lost <br>Remaining Health:<div id="sr"></div></h1>
       <p onclick="restart()">Restart</p>
       <p onclick="setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 1000);">Exit</p>
     </div>
 
 
   <div id="gamebody" style="display: none;">
-<div id="score">0</div>
+<div id="score" style="width: 100%;"></div>
 <img id="enemy" src="alien.png"> 
 
 
-  <img src="fire.svg" id="fire" style="width: 70px;height: 90px;margin-left:50%;transform: translateX(-50%);position: absolute;bottom:120px;z-index: 100;display:none ;">
-  <img src="bg.png" id="rocket" style="width: 70px;height: 90px;position: absolute;z-index: 100;margin-left:50%;transform: translateX(-50%);bottom:120px">
+  <img src="fire.svg" id="fire" style="width: 50px;height: 80px;margin-left:50%;transform: translateX(-50%);position: absolute;bottom:120px;z-index: 100;display:none ;">
+  <img src="bg.png" id="rocket" style="width: 50px;height: 80px;position: absolute;z-index: 100;margin-left:50%;transform: translateX(-50%);bottom:120px">
 
 <div style="display: flex;display: flex;position: absolute;width: 100%;bottom: 0px;">
   <button id="rightbtn" onclick="right()" class="btn"><</button>

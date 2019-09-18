@@ -1,7 +1,7 @@
 var stbtn = document.getElementById("stopbtn");
 var rgbtn = document.getElementById("rightbtn");
 var lfbtn = document.getElementById("leftbtn");
-var size = (outerWidth/2)-70;
+var size = (outerWidth/2)-50;
 var rock =document.getElementById('rocket');
 var fr =document.getElementById('fire');
 var enemi =document.getElementById('enemy');
@@ -12,7 +12,7 @@ var scr = document.getElementById("score");
 var s = document.getElementById("sr");
 var movenemi = 0;
 var trax = 0;
-var z = 0;
+var z = 100;
 document.onkeydown = checkKeycode;
 var keycode;
 
@@ -48,14 +48,14 @@ function go(){
   enemi1();
   enemidown();
 }
-  if (lose.style.display=="block") {
+  if (lose.style.display=="block" || win.style.display=="block") {
   location.reload();
 }
 };
 
 
 function enemi1(){
-      var width = ((outerWidth-70)/10)*((Math.random())*10);
+      var width = ((outerWidth-100)/10)*((Math.random())*10);
       enemi.style.transform = "translateX(" + (width) + "px)";
 }
 
@@ -74,17 +74,19 @@ function enemi1(){
 
 
 function enemidown(){
-  enemi.style.top = "0px";
+  enemi.style.top = "30px";
   var a = enemi.style.top;
   var tp = parseInt(a);
   var dwn = setInterval(framenemi, 1000);
   function framenemi() {
-    if (tp >= outerHeight-500) {
-      clearInterval(dwn);
-      enemi.style.top="-100px";
+    if (tp >= outerHeight-300) {
+      if (scr.style.width != "0px"){
+      enemi.style.display="none";
       s.innerHTML = z;
       lose.style.display="block";
       console.log('lose');
+      clearInterval(dwn);
+      }
 // var enmlf = enemi.getBoundingClientRect().left;
 // var enmtp = enemi.getBoundingClientRect().top;
 // var rcklf = rock.getBoundingClientRect().left;
@@ -133,9 +135,13 @@ var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
  enemi1();
- z+=1000;
- scr.innerHTML = z;
- console.log('you win',z);
+ z-=4;
+ scr.style.width= "" + (z) + "%";
+ if(z==0){
+  enemi.style.display="none";
+  s.innerHTML = z+"%";
+  win.style.display="block";
+ }
 }
 }
 }
@@ -167,7 +173,7 @@ if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.
 function right() {
   var id = setInterval(framel, 15);
   function framel() {
-    if (trax <= -size-70) {
+    if (trax <= -size-50) {
       clearInterval(id);
     } else {
     stbtn.addEventListener("click", function(){
