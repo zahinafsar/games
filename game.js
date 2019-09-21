@@ -77,7 +77,7 @@ function enemidown(){
   enemi.style.top = "30px";
   var a = enemi.style.top;
   var tp = parseInt(a);
-  var dwn = setInterval(framenemi, 1000);
+  var dwn = setInterval(framenemi, 600);
   function framenemi() {
     if (tp >= outerHeight-300) {
       if (scr.style.width != "0px"){
