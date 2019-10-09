@@ -13,9 +13,19 @@ var s = document.getElementById("sr");
 var movenemi = 0;
 var trax = 0;
 var z = 100;
+
+
+myVar = setTimeout(showPage, 3000);
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("bd").style.display = "block";
+}
+
+
+
+
 document.onkeydown = checkKeycode;
 var keycode;
-
 
 function checkKeycode() {
 

@@ -51,18 +51,36 @@
     	background-color: red;
     	font-weight: bold;font-size: 20px;
     }
-    var key = event.keyCode;
-
+    #loader img{
+      transform: translate(-50%);
+      position: absolute;
+      left: 50%;
+      top: 30%;
+      animation: load 2s linear;
+    }
+    #loader{
+      animation: loadx 1s infinite linear;
+    }
+    @keyframes load {
+  0% {transform:translate(-50%) scale(.5); }
+  100% {transform:translate(-50%) scale(1); }
+}
+@keyframes loadx {
+  0% { opacity: 1}
+  50%{ opacity: .5}
+  100% { opacity: 1}
+}
+    @media (max-width: 700px){
+ #loader img{
+    height: 200px;
+  }
+}
   </style>
-
-<script>
-
-</script>
-
-
 </head>
 
 <body style="margin: 0px;">
+  <div id="loader" style="display: block;background-color: black;"><img src="logo.png"></div>
+  <div id="bd" style="display: none;">
     <div id="option" style="display: block;">
       <h1 style="color: red">Space Shooter</h1>
       <p onclick="go()">New Game</p>
@@ -103,7 +121,7 @@
 style="position: absolute;">
 
 
-
+</div>
 <script src="game.js"></script>
 </body>
 </html>
