@@ -69,20 +69,6 @@ function enemi1(){
       enemi.style.transform = "translateX(" + (width) + "px)";
 }
 
-// function enemi2(){
-// var width = outerWidth-40;
-// var id = setInterval(framenemi, 20);
-//   function framenemi() {
-//     if (movenemi <= 0) {
-//       enemi1();
-//     } else {
-//       movenemi=movenemi-5;
-//       enemi.style.transform = "translateX(" + (movenemi) + "px)";
-//     }
-// }
-// }
-
-
 function enemidown(){
   enemi.style.top = "30px";
   var a = enemi.style.top;
@@ -93,19 +79,12 @@ function enemidown(){
       if (scr.style.width != "0px"){
       enemi.style.display="none";
       s.innerHTML = z;
+    if (win.style.display!="block") {
       lose.style.display="block";
+    }
       console.log('lose');
       clearInterval(dwn);
       }
-// var enmlf = enemi.getBoundingClientRect().left;
-// var enmtp = enemi.getBoundingClientRect().top;
-// var rcklf = rock.getBoundingClientRect().left;
-// var rcktp = rock.getBoundingClientRect().top;
-// if(Math.abs(Math.abs(enmlf)-Math.abs(rcklf))<45 && Math.abs(Math.abs(enmtp)-Math.abs(rcktp))<5){
-//  lose.style.display="block";
-//  main.style.display="none";
-//  console.log('lose');
-// }
     } else {
       tp=tp+5;
       enemi.style.top = "" + (tp) + "px";
@@ -145,7 +124,7 @@ var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
  enemi1();
- z-=4;
+ z-=2.5;
  scr.style.width= "" + (z) + "%";
  if(z==0){
   enemi.style.display="none";
