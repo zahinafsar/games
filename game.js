@@ -34,10 +34,11 @@ var win = document.getElementById("win");
 // score
 var s = document.getElementById("sr");
 
+//high score
+var sh = document.getElementById("srh");
 var movenemi = 0;
 var trax = 0;
 var z = 100;
-
 
 
 
@@ -77,6 +78,11 @@ if (window.event.keyCode == 37){
 
 
 
+if (localStorage.length==0) {
+localStorage.setItem("best",100)
+}
+
+
 
 
 
@@ -89,7 +95,7 @@ function go(){
   win.style.display="none";
   game.style.display="none";
   main.style.display="block";
-  enemi1();
+  enemiPossition();
   enemidown();
 }
   if (lose.style.display=="block" || win.style.display=="block") {
@@ -105,7 +111,7 @@ function go(){
 
 
 // genarate random possition for the enemy
-function enemi1(){
+function enemiPossition(){
       var width = ((outerWidth-100)/10)*((Math.random())*10);
       enemi.style.transform = "translateX(" + (width) + "px)";
 }
@@ -118,22 +124,32 @@ function enemi1(){
 
 
 // moving enemy to bottum
+var n = 600;
+var killed = false;
 function enemidown(){
   enemi.style.top = "30px";
   var a = enemi.style.top;
   var tp = parseInt(a);
-  var dwn = setInterval(framenemi, 600);
+  var dwn = setInterval(framenemi, n);
   function framenemi() {
     if (tp >= outerHeight-300) {
-      if (scr.style.width != "0px"){
+      if (scr.style.width != "0px" && win.style.display!="block"){
+        if (parseInt(localStorage.getItem("best")) > z){
+          localStorage.setItem("best",z)
+        }
       enemi.style.display="none";
-      s.innerHTML = z;
-    if (win.style.display!="block") {
+      s.innerHTML = 100-z;
+      sh.innerHTML = 100-parseInt(localStorage.getItem("best"));
       lose.style.display="block";
-    }
       clearInterval(dwn);
       }
     } else {
+      if (killed==true) {
+      killed=false
+      clearInterval(dwn);
+      n=n-15;
+      enemidown();
+      }
       tp=tp+5;
       enemi.style.top = "" + (tp) + "px";
     }
@@ -183,19 +199,20 @@ function stop(){
       fr.style.bottom = "" + (tray) + "px";
 
 
- // check if the fire succesfully shooted
+ // check if the fire succesfully hitted to the enemy
 
 var enmlf = enemi.getBoundingClientRect().left;
 var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
- enemi1();
- z-=2.5;
- scr.style.width= "" + (z) + "%";
+  killed = true;
+  fr.style.bottom = "120px";
+  fr.style.display="none";
+  z-=2;
+  scr.style.width= "" + (z) + "%";
  if(z==0){
   enemi.style.display="none";
-  s.innerHTML = z+"%";
   win.style.display="block";
  }
 }
