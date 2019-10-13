@@ -128,8 +128,7 @@ var n = 600;
 var killed = false;
 function enemidown(){
   enemi.style.top = "30px";
-  var a = enemi.style.top;
-  var tp = parseInt(a);
+  var tp = parseInt(enemi.style.top);
   var dwn = setInterval(framenemi, n);
   function framenemi() {
     if (tp >= outerHeight-300) {
@@ -147,9 +146,11 @@ function enemidown(){
       if (killed==true) {
       killed=false
       clearInterval(dwn);
+      enemi.style.top = "30px";
       n=n-15;
-      enemidown();
+      setTimeout(function(){ enemi.style.width="70px";enemidown();enemiPossition(); }, 800);
       }
+      
       tp=tp+5;
       enemi.style.top = "" + (tp) + "px";
     }
@@ -206,10 +207,11 @@ var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
+  enemi.style.width="0px";
   killed = true;
   fr.style.bottom = "120px";
   fr.style.display="none";
-  z-=2;
+  z-=1.5;
   scr.style.width= "" + (z) + "%";
  if(z==0){
   enemi.style.display="none";
@@ -245,7 +247,7 @@ if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.
     rgbtn.addEventListener("click", function(){
     clearInterval(id);
     });
-      trax=trax+5;
+      trax=trax+3;
       rock.style.transform = "translateX(" + (trax) + "px)";
     }
 }
@@ -272,7 +274,7 @@ function right() {
     lfbtn.addEventListener("click", function(){
     clearInterval(id);
     });
-      trax=trax-5;
+      trax=trax-3;
       rock.style.transform = "translateX(" + (trax) + "px)";
     }
 }
