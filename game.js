@@ -1,29 +1,59 @@
+// tap to fire
 var stbtn = document.getElementById("stopbtn");
+
+// tap to move the enemy to right side
 var rgbtn = document.getElementById("rightbtn");
+
+// tap to move the enemy to left side
 var lfbtn = document.getElementById("leftbtn");
+
+// genarate screen size
 var size = (outerWidth/2)-50;
+
+// player
 var rock =document.getElementById('rocket');
+
+// fire
 var fr =document.getElementById('fire');
+
+// enemi
 var enemi =document.getElementById('enemy');
+
+// options panel
 var game = document.getElementById("option");
-var main = document.getElementById("gamebody");
-var win = document.getElementById("win");
+
+// ememy life
 var scr = document.getElementById("score");
+
+// main div
+var main = document.getElementById("gamebody");
+
+// winimg screen
+var win = document.getElementById("win");
+
+// score
 var s = document.getElementById("sr");
+
 var movenemi = 0;
 var trax = 0;
 var z = 100;
 
 
+
+
+
+// loader animation
 myVar = setTimeout(showPage, 3000);
 function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("bd").style.display = "block";
 }
+// loader animation
 
 
 
 
+// functions for keyboard use
 document.onkeydown = checkKeycode;
 var keycode;
 
@@ -42,12 +72,16 @@ if (window.event.keyCode == 37){
  right();
 }
 };
+// functions for keyboard use
 
 
 
 
 
 
+
+
+// start new game
 function go(){
   if (game.style.display=="block") {
   enemi.style.display = "block";
@@ -62,13 +96,28 @@ function go(){
   location.reload();
 }
 };
+// start new game
 
 
+
+
+
+
+
+// genarate random possition for the enemy
 function enemi1(){
       var width = ((outerWidth-100)/10)*((Math.random())*10);
       enemi.style.transform = "translateX(" + (width) + "px)";
 }
+// genarate random possition for the enemy
 
+
+
+
+
+
+
+// moving enemy to bottum
 function enemidown(){
   enemi.style.top = "30px";
   var a = enemi.style.top;
@@ -82,7 +131,6 @@ function enemidown(){
     if (win.style.display!="block") {
       lose.style.display="block";
     }
-      console.log('lose');
       clearInterval(dwn);
       }
     } else {
@@ -91,15 +139,31 @@ function enemidown(){
     }
 }
 }
-  
+// moving enemy to down
+
+
+
+
+
+
+
+// reload fire
 function stop(){
   fr.style.transform=rock.style.transform;
   fr.style.display="block";
   fire();
 }
+// reload fire
 
 
 
+
+
+
+
+
+
+// shooting functions
  function fire(){
   var tray = 120;
   var height=(outerHeight+120);
@@ -117,7 +181,10 @@ function stop(){
     });
       tray=tray+7;
       fr.style.bottom = "" + (tray) + "px";
-      
+
+
+ // check if the fire succesfully shooted
+
 var enmlf = enemi.getBoundingClientRect().left;
 var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
@@ -135,7 +202,20 @@ if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.
 }
 }
 }
+ // check if the fire succesfully shooted
+// shooting functions
 
+
+
+
+
+
+
+
+
+
+
+// tap to move the enemy to left side
   function left() {
   var id = setInterval(framef, 15);
   function framef() {
@@ -153,12 +233,16 @@ if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.
     }
 }
 }
+// tap to move the enemy to left side
 
 
 
 
 
 
+
+
+// tap to move the enemy to right side
 function right() {
   var id = setInterval(framel, 15);
   function framel() {
@@ -176,3 +260,4 @@ function right() {
     }
 }
 }
+// tap to move the enemy to right side
