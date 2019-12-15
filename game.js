@@ -124,7 +124,7 @@ function enemiPossition(){
 
 
 // moving enemy to bottum
-var n = 20;
+var n = 35;
 var killed = false;
 function enemidown(){
   enemi.style.top = "30px";
