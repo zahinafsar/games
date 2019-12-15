@@ -147,7 +147,7 @@ function enemidown(){
       killed=false
       clearInterval(dwn);
       enemi.style.top = "30px";
-      if (n>100) {
+      if (n>60) {
       n=n-15;
       }
       setTimeout(function(){ enemi.style.width="70px";enemidown();enemiPossition(); }, 800);
