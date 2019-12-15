@@ -124,7 +124,7 @@ function enemiPossition(){
 
 
 // moving enemy to bottum
-var n = 35;
+var n = 600;
 var killed = false;
 function enemidown(){
   enemi.style.top = "30px";
@@ -147,7 +147,7 @@ function enemidown(){
       killed=false
       clearInterval(dwn);
       enemi.style.top = "30px";
-      if (n>60) {
+      if (n>40) {
       n=n-15;
       }
       setTimeout(function(){ enemi.style.width="70px";enemidown();enemiPossition(); }, 800);
