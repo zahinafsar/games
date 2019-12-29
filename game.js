@@ -38,7 +38,7 @@ var s = document.getElementById("sr");
 var sh = document.getElementById("srh");
 var movenemi = 0;
 var trax = 0;
-var z = 100;
+var z = 0;
 
 
 
@@ -121,8 +121,8 @@ function enemidown(){
           localStorage.setItem("best",z)
         }
       enemi.style.display="none";
-      s.innerHTML = 100-z;
-      sh.innerHTML = 100-parseInt(localStorage.getItem("best"));
+      s.innerHTML = z;
+      sh.innerHTML = parseInt(localStorage.getItem("best"));
       lose.style.display="block";
       clearInterval(dwn);
       }
@@ -132,7 +132,7 @@ function enemidown(){
       clearInterval(dwn);
       enemi.style.top = "30px";
       if (n>0) {
-      n=n-15;
+      n=n-10;
       }
 //       setTimeout(function(){ 
       enemi.style.width="70px";
@@ -206,7 +206,7 @@ if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.
   killed = true;
   fr.style.bottom = "120px";
   fr.style.display="none";
-  z-=1.5;
+  z++;
  if(z==0){
   enemi.style.display="none";
   win.style.display="block";
