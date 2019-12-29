@@ -137,7 +137,7 @@ function enemidown(){
       clearInterval(dwn);
       enemi.style.top = "30px";
       if (n>0) {
-      n=n-10;
+      n=n-5;
       }
 //       setTimeout(function(){ 
       enemi.style.width="70px";
