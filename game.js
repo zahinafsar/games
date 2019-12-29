@@ -54,7 +54,7 @@ function showPage() {
 
 
 
-// functions for keyboard use
+// functions for keyboard
 document.onkeydown = checkKeycode;
 var keycode;
 
@@ -73,7 +73,7 @@ if (window.event.keyCode == 37){
  right();
 }
 };
-// functions for keyboard use
+// functions for keyboard
 
 
 
@@ -202,6 +202,8 @@ var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
+  s.innerHTML = z;
+  sh.innerHTML = parseInt(localStorage.getItem("best"));
   enemi.style.width="0px";
   killed = true;
   fr.style.bottom = "120px";
