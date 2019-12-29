@@ -150,7 +150,11 @@ function enemidown(){
       if (n>40) {
       n=n-15;
       }
-      setTimeout(function(){ enemi.style.width="70px";enemidown();enemiPossition(); }, 800);
+//       setTimeout(function(){ 
+      enemi.style.width="70px";
+      enemidown();
+      enemiPossition(); 
+//       }, 800);
       }
       
       tp=tp+5;
