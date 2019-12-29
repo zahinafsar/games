@@ -81,7 +81,7 @@ if (window.event.keyCode == 37){
 
 
 if (localStorage.length==0) {
-localStorage.setItem("best",z)
+localStorage.setItem("best",0)
 }
 
 
@@ -122,7 +122,7 @@ function enemidown(){
   function framenemi() {
     if (tp >= outerHeight-300) {
       if (scr.style.width != "0px" && win.style.display!="block"){
-        if (parseInt(localStorage.getItem("best")) > z){
+        if (parseInt(localStorage.getItem("best")) < z){
           localStorage.setItem("best",z)
         }
       enemi.style.display="none";
