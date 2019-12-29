@@ -28,14 +28,14 @@ var scr = document.getElementById("score");
 // main div
 var main = document.getElementById("gamebody");
 
-// winimg screen
+// wining screen
 var win = document.getElementById("win");
 
 // score
-var s = document.getElementById("sr");
+var s = document.querySelector('#sr');
 
 //high score
-var sh = document.getElementById("srh");
+var sh = document.querySelector('#srh');
 var movenemi = 0;
 var trax = 0;
 var z = 0;
@@ -203,8 +203,8 @@ var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
-  s.innerHTML = z;
-  sh.innerHTML = parseInt(localStorage.getItem("best"));
+  s.innerText = z;
+  sh.innerText = parseInt(localStorage.getItem("best"));
   enemi.style.width="0px";
   killed = true;
   fr.style.bottom = "120px";
