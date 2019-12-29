@@ -107,22 +107,6 @@ function go(){
 
 
 
-
-
-
-// genarate random possition for the enemy
-function enemiPossition(){
-      var width = ((outerWidth-100)/10)*((Math.random())*10);
-      enemi.style.transform = "translateX(" + (width) + "px)";
-}
-// genarate random possition for the enemy
-
-
-
-
-
-
-
 // moving enemy to bottum
 var n = 600;
 var killed = false;
@@ -165,7 +149,12 @@ function enemidown(){
 // moving enemy to down
 
 
-
+// genarate random possition for the enemy
+function enemiPossition(){
+      var width = ((outerWidth-100)/10)*((Math.random())*10);
+      enemi.style.transform = "translateX(" + (width) + "px)";
+}
+// genarate random possition for the enemy
 
 
 
