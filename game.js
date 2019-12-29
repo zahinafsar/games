@@ -108,7 +108,7 @@ function go(){
 
 
 // moving enemy to bottum
-var n = 600;
+var n = 100;
 var killed = false;
 function enemidown(){
   enemi.style.top = "30px";
@@ -141,7 +141,7 @@ function enemidown(){
 //       }, 800);
       }
       
-      tp=tp+5;
+      tp=tp+1;
       enemi.style.top = "" + (tp) + "px";
     }
 }
