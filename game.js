@@ -207,7 +207,6 @@ if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.
   fr.style.bottom = "120px";
   fr.style.display="none";
   z-=1.5;
-  scr.style.width= "" + (z) + "%";
  if(z==0){
   enemi.style.display="none";
   win.style.display="block";
