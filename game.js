@@ -131,7 +131,7 @@ function enemidown(){
       killed=false
       clearInterval(dwn);
       enemi.style.top = "30px";
-      if (n>40) {
+      if (n>0) {
       n=n-15;
       }
 //       setTimeout(function(){ 
