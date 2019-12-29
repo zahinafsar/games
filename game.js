@@ -33,9 +33,11 @@ var win = document.getElementById("win");
 
 // score
 var s = document.querySelector('#sr');
+var stop = document.querySelector('#srtop');
 
 //high score
 var sh = document.querySelector('#srh');
+var shtop = document.querySelector('#srhtop');
 var movenemi = 0;
 var trax = 0;
 var z = 0;
@@ -89,7 +91,7 @@ localStorage.setItem("best",100)
 
 // start new game
 function go(){
-  sh.innerHTML = parseInt(localStorage.getItem("best"));
+  shtop.innerHTML = parseInt(localStorage.getItem("best"));
   if (game.style.display=="block") {
   enemi.style.display = "block";
   lose.style.display="none";
@@ -203,8 +205,7 @@ var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
-  s.innerText = z;
-  sh.innerText = parseInt(localStorage.getItem("best"));
+  stop.innerText = z;
   enemi.style.width="0px";
   killed = true;
   fr.style.bottom = "120px";
