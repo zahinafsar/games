@@ -81,7 +81,7 @@ if (window.event.keyCode == 37){
 
 
 if (localStorage.length==0) {
-localStorage.setItem("best",100)
+localStorage.setItem("best",z)
 }
 
 
@@ -207,12 +207,12 @@ var enmtp = enemi.getBoundingClientRect().top;
 var frlf = fr.getBoundingClientRect().left;
 var frtp = fr.getBoundingClientRect().top;
 if(Math.abs(Math.abs(enmlf)-Math.abs(frlf))<50 && Math.abs(Math.abs(enmtp)-Math.abs(frtp))<5){
+  z++;
   stp.innerText = z;
   enemi.style.width="0px";
   killed = true;
   fr.style.bottom = "120px";
   fr.style.display="none";
-  z++;
  if(z==0){
   enemi.style.display="none";
   win.style.display="block";
