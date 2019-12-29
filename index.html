@@ -49,8 +49,10 @@
     	top: 0px;
     	background-color: red;
     	font-weight: bold;
-      font-size: 20px;
+      font-size: 10px;
       color:white;
+      display: flex;
+      flex-direction: column;
     }
     #loader img{
       transform: translate(-50%);
@@ -108,9 +110,9 @@
   <div id="gamebody" style="display: none;">
     
 <div id="score" style="width: 100%;">
-  <div><p>Score:</p><p id="srtop" style="align:left;">0</p></div>
+  <div><p>Score:</p><p id="srtop" style="text-align:left;">0</p></div>
   <div id="srh" style="align:right;"></div>
-  <div><p>Best score:</p><p id="srhtop" style="align:right;">0</p></div>
+  <div><p>Best score:</p><p id="srhtop" style="text-align:right;">0</p></div>
 </div>
     
 <img style="width:70px;" id="enemy" src="alien.png"> 
