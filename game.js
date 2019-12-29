@@ -91,7 +91,9 @@ localStorage.setItem("best",100)
 
 // start new game
 function go(){
-  shtop.innerHTML = parseInt(localStorage.getItem("best"));
+  if (localStorage.length!=0) {
+  shtop.innerText = parseInt(localStorage.getItem("best"));
+  }
   if (game.style.display=="block") {
   enemi.style.display = "block";
   lose.style.display="none";
