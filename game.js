@@ -139,11 +139,11 @@ function enemidown(){
       if (n>0) {
       n=n-5;
       }
-//       setTimeout(function(){ 
-      enemi.style.width="70px";
-      enemidown();
-      enemiPossition(); 
-//       }, 800);
+      async function(){ 
+      await enemi.style.width="70px";
+      await enemidown();
+      await enemiPossition(); 
+      }
       }
       
       tp=tp+1;
