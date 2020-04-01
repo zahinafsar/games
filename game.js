@@ -139,15 +139,12 @@ function enemidown(){
       if (n>0) {
       n=n-5;
       }
-      async function remove(){ 
-      await enemi.style.width="70px";
-      await enemi.style.display="none";
-      await enemidown();
-      await enemiPossition(); 
-      await enemi.style.display="block";
+      enemi.style.width="70px";
+      enemi.style.display="none";
+      enemidown();
+      enemiPossition(); 
+      enemi.style.display="block";
       };
-      remove();
-      }
       
       tp=tp+1;
       enemi.style.top = "" + (tp) + "px";
