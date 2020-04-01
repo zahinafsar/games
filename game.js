@@ -46,11 +46,11 @@ var z = 0;
 
 
 // loader animation
-// myVar = setTimeout(showPage, 3000);
-// function showPage() {
-//   document.getElementById("loader").style.display = "none";
-//   document.getElementById("bd").style.display = "block";
-// }
+myVar = setTimeout(showPage, 3000);
+function showPage() {
+document.getElementById("loader").style.display = "none";
+document.getElementById("bd").style.display = "block";
+}
 // loader animation
 
 
@@ -139,7 +139,14 @@ function enemidown(){
       if (n>0) {
       n=n-5;
       }
-       remove();
+      async function remove(){ 
+      await enemi.style.width="70px";
+      await enemi.style.display="none";
+      await enemidown();
+      await enemiPossition(); 
+      await enemi.style.display="block";
+      };
+      remove();
       }
       
       tp=tp+1;
@@ -148,11 +155,7 @@ function enemidown(){
 }
 }
 
-async function remove(){ 
-      await enemi.style.width="70px";
-      await enemidown();
-      await enemiPossition(); 
-      };
+
 
 // moving enemy to down
 
