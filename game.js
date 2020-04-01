@@ -46,11 +46,11 @@ var z = 0;
 
 
 // loader animation
-myVar = setTimeout(showPage, 3000);
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("bd").style.display = "block";
-}
+// myVar = setTimeout(showPage, 3000);
+// function showPage() {
+//   document.getElementById("loader").style.display = "none";
+//   document.getElementById("bd").style.display = "block";
+// }
 // loader animation
 
 
