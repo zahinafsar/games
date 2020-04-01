@@ -139,11 +139,7 @@ function enemidown(){
       if (n>0) {
       n=n-5;
       }
-      async function(){ 
-      await enemi.style.width="70px";
-      await enemidown();
-      await enemiPossition(); 
-      }
+       remove();
       }
       
       tp=tp+1;
@@ -151,6 +147,13 @@ function enemidown(){
     }
 }
 }
+
+async function remove(){ 
+      await enemi.style.width="70px";
+      await enemidown();
+      await enemiPossition(); 
+      };
+
 // moving enemy to down
 
 
